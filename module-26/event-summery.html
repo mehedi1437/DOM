@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Final DOM events</h1>
+    <h3 id="handeler-status">Defult text</h3>
+    <p id="input-text-dislapy">BY defult input text</p>
+    <input id="input-field" type="text">
+    <button id="btn-update">Update</button>
+    <br>
+    <br>
+    <button onclick="handelOnclick()">Handel event by add onclick function</button>
+    <button id="event-listener">Handel event by adEventlistener</button>
+    <br>
+    <br>
+
+
+
+    <!-- New practice input field -->
+
+    <p id="p">New default Text </p>
+
+    <input id="input" type="text">
+    <button id="update">Update</button>
+    
+
+    <script>
+        function handelOnclick(){
+            const handelerStatus = document.getElementById("handeler-status");
+            handelerStatus.innerText = 'Handel by function attatched on onclick attribute';
+        }
+
+        // Option-2 : the final useable option
+        document.getElementById('event-listener').addEventListener('click', function(){
+            const handerStatus = document.getElementById('handeler-status');
+            handerStatus.innerText = 'text updated by addEventListener function'
+        })
+
+
+        // Option 2 recap
+
+        document.getElementById('btn-update').addEventListener('click', function(){
+            const inputField = document.getElementById('input-field');
+            const inputText = inputField.value;
+
+            const p = document.getElementById('input-text-dislapy');
+             p.innerText = inputText;
+
+             inputField.value = '';
+        });
+
+
+        // new Practice input field
+
+        document.getElementById('update').addEventListener('click', function() {
+            const inputFiled = document.getElementById('input');
+            const inputText = inputFiled.value;
+
+            const p = document.getElementById('p');
+            p.innerText = inputText;
+
+            inputFiled.value = '';
+        });
+    </script>
+</body>
+</html>
